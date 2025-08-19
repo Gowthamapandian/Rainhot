@@ -1,1 +1,26 @@
+name: Swift CI
+
+on:
+  workflow_dispatch:   # manual trigger
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build:
+    runs-on: macos-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Show Swift version
+        run: swift --version
+
+      - name: Build Swift project
+        run: swift build --configuration release
+
+      - name: Run tests
+        run: swift test
 
