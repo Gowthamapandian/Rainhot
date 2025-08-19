@@ -1,29 +1,23 @@
-// swift-tools-version:5.7
+// swift-tools-version:5.8
 import PackageDescription
 
 let package = Package(
-    name: "MyApp",
+    name: "SwiftUISPMDemo1",
     platforms: [
-        .iOS(.v14),  // Minimum iOS version
+        .macOS(.v13), .iOS(.v16)
     ],
     products: [
-        .library(
-            name: "MyApp",
-            targets: ["MyApp"]
-        ),
+        .executable(
+            name: "SwiftUISPMDemo1",
+            targets: ["SwiftUISPMDemo1"]
+        )
     ],
-    dependencies: [
-        // Example: Alamofire dependency
-        .package(url: "https://github.com/Alamofire/Alamofire.git", from: "5.8.0")
-    ],
+    dependencies: [],
     targets: [
-        .target(
-            name: "MyApp",
-            dependencies: ["Alamofire"]
-        ),
-        .testTarget(
-            name: "MyAppTests",
-            dependencies: ["MyApp"]
-        ),
+        .executableTarget(
+            name: "SwiftUISPMDemo1",
+            dependencies: []
+        )
+        // Removed test target
     ]
 )
